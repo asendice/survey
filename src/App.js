@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Hero from "./components/home-page/hero";
-import Create from "./components/create-page/Create";
+import Create from "./components/create-page/create";
 function App() {
   return (
     <Routes>
