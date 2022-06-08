@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import classes from "./button.module.css";
 
 function Button(props) {
-  const { link } = props;
+  const { link, cancel, action } = props;
   if (link) {
     return (
       <Link to={link} className={classes.container}>
@@ -10,7 +10,14 @@ function Button(props) {
       </Link>
     );
   }
-  return <a></a>;
+
+  if (cancel){
+    return (
+      <div className={classes.cancel}>{props.children}</div>
+    )
+  }
+
+  return <div onClick={(e) => action(e)} className={classes.container}>{props.children}</div>;
 }
 
 export default Button;
