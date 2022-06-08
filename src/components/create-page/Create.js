@@ -1,7 +1,13 @@
+import classes from "./create.module.css";
+import CreateForm from "./create-form";
+
 function Create() {
 
   return (
-    <div>Create Page</div>
+    <div className={classes.container}>
+      <CreateForm />
+
+    </div>
   )
 }
 
