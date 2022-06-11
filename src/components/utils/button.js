@@ -13,7 +13,7 @@ function Button(props) {
 
   if (cancel){
     return (
-      <div className={classes.cancel}>{props.children}</div>
+      <div onClick={() => action(false)} className={classes.cancel}>{props.children}</div>
     )
   }
 

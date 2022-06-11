@@ -4,11 +4,12 @@ import { useState } from "react";
 
 function NameModal(props) {
   const [input, setInput] = useState("");
-  const { setName } = props;
+  const { setName, setOpen } = props;
 
   function onSavePress(e) {
     e.preventDefault();
     setName(input);
+    setOpen(false);
   }
 
   return (
@@ -17,7 +18,7 @@ function NameModal(props) {
         <label className={classes.nameLabel}>Survey Title</label>
         <input className={classes.nameInput} type="text" onChange={(e) => setInput(e.target.value)} />
         <div className={classes.actionBtns}>
-          <Button cancel={true}>CANCEL</Button>
+          <Button action={setOpen} cancel={true}>CANCEL</Button>
           <Button action={onSavePress}>SAVE</Button>
         </div>
       </form>
