@@ -15,7 +15,7 @@ function NameModal(props) {
   return (
     <div className={classes.container}>
       <div className={classes.content}>
-        <form className={classes.nameForm}>
+        <form onSubmit={(e) => onSavePress(e)} className={classes.nameForm}>
           <label className={classes.nameLabel}>Survey Title</label>
           <input
             className={classes.nameInput}
