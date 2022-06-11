@@ -14,14 +14,22 @@ function NameModal(props) {
 
   return (
     <div className={classes.container}>
-      <form className={classes.nameForm}>
-        <label className={classes.nameLabel}>Survey Title</label>
-        <input className={classes.nameInput} type="text" onChange={(e) => setInput(e.target.value)} />
-        <div className={classes.actionBtns}>
-          <Button action={setOpen} cancel={true}>CANCEL</Button>
-          <Button action={onSavePress}>SAVE</Button>
-        </div>
-      </form>
+      <div className={classes.content}>
+        <form className={classes.nameForm}>
+          <label className={classes.nameLabel}>Survey Title</label>
+          <input
+            className={classes.nameInput}
+            type="text"
+            onChange={(e) => setInput(e.target.value)}
+          />
+          <div className={classes.actionBtns}>
+            <Button action={setOpen} cancel={true}>
+              CANCEL
+            </Button>
+            <Button action={onSavePress}>SAVE</Button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }
