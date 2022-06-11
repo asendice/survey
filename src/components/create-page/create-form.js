@@ -17,7 +17,7 @@ function CreateForm() {
         {name}
       </h1>
       {modalNameOpen && <NameModal setName={setName} setOpen={setNameModalOpen} />}
-      {/* <AddQuestion /> */}
+      <AddQuestion />
     </div>
   );
 }
