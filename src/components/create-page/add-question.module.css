@@ -85,13 +85,12 @@
 .nextquestion {
   margin-left: 2rem;
   background-color: #00bf6f;
-  padding: 0rem 1.5rem;
   color: #fff;
   width: 10rem;
   font-size: .8rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .savencancel {

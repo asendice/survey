@@ -6,24 +6,31 @@ import {
   BsCheck2Square,
   BsTextareaResize,
   BsInputCursorText,
-  BsPlusCircle
+  BsPlusCircle,
 } from "react-icons/bs";
 import Button from "../utils/button";
 
-function AddQuestion() {
+function AddQuestion(props) {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [type, setType] = useState("Single Textfield");
+
+  const { update, questionNumber } = props;
 
   function updateType(type) {
     setOpen(false);
     setType(type);
   }
 
+  function onSavePress() {
+    const question = { title: title, type: type };
+    update(question)
+  }
+
   return (
     <div className={classes.container}>
       <div className={classes.content}>
-        <h2>Q1</h2>
+        <h2>Q{questionNumber}</h2>
         <div className={classes.inputs}>
           <input
             type="text"
@@ -59,10 +66,15 @@ function AddQuestion() {
         </div>
       </div>
       <div className={classes.actionBtns}>
-        <div className={classes.nextquestion}><BsPlusCircle /><p>Next Question</p></div>
+        <div className={classes.nextquestion}>
+          <p>NEXT QUESTION</p>
+          <BsPlusCircle />
+        </div>
         <div className={classes.savencancel}>
-          <Button cancel={true}>CANCEL</Button>
-          <Button>SAVE</Button>
+          {/* <Button cancel={true}>CANCEL</Button>
+          <Button>SAVE</Button> */}
+          <button>cancel</button>
+          <button onClick={onSavePress}>save</button>
         </div>
       </div>
     </div>
