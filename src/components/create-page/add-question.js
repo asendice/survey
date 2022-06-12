@@ -9,11 +9,13 @@ import {
   BsPlusCircle,
 } from "react-icons/bs";
 import Button from "../utils/button";
+import Choices from "./choices";
 
 function AddQuestion(props) {
   const [open, setOpen] = useState(false);
   const [title, setTitle] = useState("");
   const [type, setType] = useState("Single Textfield");
+  const [choices, setChoices] = useState({});
 
   const { update, questionNumber } = props;
 
@@ -23,8 +25,8 @@ function AddQuestion(props) {
   }
 
   function onSavePress() {
-    const question = { title: title, type: type, number: questionNumber };
-    update(question)
+    const question = { title: title, type: type, number: questionNumber, choices: choices };
+    update(question);
   }
 
   return (
@@ -65,6 +67,14 @@ function AddQuestion(props) {
           )}
         </div>
       </div>
+
+      {type === "Multiple Choice" && (
+        <Choices type={type} choices={choices} setChoices={setChoices} />
+      )}
+      {type === "Checkbox" && (
+        <Choices type={type} choices={choices} setChoices={setChoices} />
+      )}
+
       <div className={classes.actionBtns}>
         <div className={classes.nextquestion}>
           <p>NEXT QUESTION</p>

@@ -1,7 +1,8 @@
 import classes from "./question.module.css";
+import { BsSquare, BsCircle } from "react-icons/bs";
 
 function Question(props) {
-  const { title, type, number } = props.info;
+  const { title, type, number, choices } = props.info;
 
   return (
     <div className={classes.container}>
@@ -9,10 +10,22 @@ function Question(props) {
         <h1>{number}.</h1>
         <h2>{title}</h2>
       </div>
-      {type === "Single Textfield" && <input disabled/>}
-      {type === "Comment Textfield" && <textarea disabled/>}
-      {/* {type === "Single Textfield" && <input disabled/>}
-      {type === "Single Textfield" && <input disabled/>} */}
+      {type === "Single Textfield" && <input disabled />}
+      {type === "Comment Textfield" && <textarea disabled />}
+      {type === "Multiple Choice" &&
+        Object.values(choices).map((choice, index) => (
+          <div key={index}>
+            <BsCircle />
+            {choice}
+          </div>
+        ))}
+      {type === "Checkbox" &&
+        Object.values(choices).map((choice, index) => (
+          <div key={index}>
+            <BsSquare />
+            {choice}
+          </div>
+        ))}
     </div>
   );
 }
