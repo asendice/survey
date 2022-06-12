@@ -3,6 +3,7 @@ import { useState } from "react";
 import AddQuestion from "./add-question";
 import NameModal from "./name-modal";
 import Button from "../utils/button";
+import Question from "./question";
 
 function CreateForm() {
   const [name, setName] = useState("Untitled Survey");
@@ -24,6 +25,9 @@ function CreateForm() {
       >
         {name}
       </h1>
+      {questions.map((question) => (
+        <Question info={question}/>
+      ))}
       {modalNameOpen && (
         <NameModal setName={setName} setOpen={setNameModalOpen} />
       )}

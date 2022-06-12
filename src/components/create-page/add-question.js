@@ -23,7 +23,7 @@ function AddQuestion(props) {
   }
 
   function onSavePress() {
-    const question = { title: title, type: type };
+    const question = { title: title, type: type, number: questionNumber };
     update(question)
   }
 
