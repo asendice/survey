@@ -14,14 +14,14 @@ function Question(props) {
       {type === "Comment Textfield" && <textarea disabled />}
       {type === "Multiple Choice" &&
         Object.values(choices).map((choice, index) => (
-          <div key={index}>
+          <div key={choice} className={classes.choices}>
             <BsCircle />
             {choice}
           </div>
         ))}
       {type === "Checkbox" &&
         Object.values(choices).map((choice, index) => (
-          <div key={index}>
+          <div key={choice} className={classes.choices}>
             <BsSquare />
             {choice}
           </div>
