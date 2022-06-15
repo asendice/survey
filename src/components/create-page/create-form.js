@@ -25,8 +25,8 @@ function CreateForm() {
       >
         {name}
       </h1>
-      {questions.map((question) => (
-        <Question info={question}/>
+      {questions.map((question, index) => (
+        <Question key={index} info={question}/>
       ))}
       {modalNameOpen && (
         <NameModal setName={setName} setOpen={setNameModalOpen} />

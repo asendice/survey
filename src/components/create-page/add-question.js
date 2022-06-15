@@ -16,6 +16,7 @@ function AddQuestion(props) {
   const [title, setTitle] = useState("");
   const [type, setType] = useState("Single Textfield");
   const [choices, setChoices] = useState({});
+  const [error, setError] = useState("");
 
   const { update, questionNumber } = props;
 
@@ -25,6 +26,9 @@ function AddQuestion(props) {
   }
 
   function onSavePress() {
+    if(choices === {}){
+      console.log("error");
+    }
     const question = { title: title, type: type, number: questionNumber, choices: choices };
     update(question);
   }
