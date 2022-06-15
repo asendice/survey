@@ -16,7 +16,7 @@ function AddQuestion(props) {
   const [title, setTitle] = useState("");
   const [type, setType] = useState("Single Textfield");
   const [choices, setChoices] = useState({});
-  const [error, setError] = useState("");
+  const [error, setError] = useState(false);
 
   const { update, questionNumber } = props;
 
@@ -26,8 +26,9 @@ function AddQuestion(props) {
   }
 
   function onSavePress() {
-    if(choices === {}){
-      console.log("error");
+    if(type==="Checkbox" || type==="Multiple Choice" && Object.keys(choices).length === 0){
+      setError(true);
+      return;
     }
     const question = { title: title, type: type, number: questionNumber, choices: choices };
     update(question);
@@ -78,7 +79,7 @@ function AddQuestion(props) {
       {type === "Checkbox" && (
         <Choices type={type} choices={choices} setChoices={setChoices} />
       )}
-
+      {error && <p className={classes.errorText}> Must provide at least one choice option </p>}
       <div className={classes.actionBtns}>
         <div className={classes.nextquestion}>
           <p>NEXT QUESTION</p>
